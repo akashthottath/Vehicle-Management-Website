@@ -1,0 +1,33 @@
+<!-- header -->
+
+<app-navbar></app-navbar>
+
+<!-- table -->
+<div class="table mt-4">
+    <table class="table shadow-lg border p-2">
+      <thead>
+        <tr class="fs-6">
+          <th class="text-center">Vehicle</th>
+          <th class="text-center">Driver Name</th>
+          <th class="text-center">Due Amount</th>
+          
+        </tr>
+      </thead>
+
+      <tbody>
+      <tr class="content fw-bold" *ngFor="let vehicle of allvehicles">
+        <td>{{ vehicle.Name }}</td>
+        <td *ngIf="!vehicle.assignedname || vehicle.assignedname.length === 0">Not Assigned</td>
+        <td *ngIf="vehicle.assignedname && vehicle.assignedname.length !== 0">{{ vehicle.assignedname }}</td>
+        <td>
+          <!-- Show "No Due" if vehicledue is true and assignedname is not empty -->
+          <p *ngIf="vehicle.assignedname && vehicle.assignedname.length !== 0 && vehicle.vehicledue">No Due</p>
+          <!-- Show Price if vehicledue is false and assignedname is not empty -->
+          <p *ngIf="vehicle.assignedname && vehicle.assignedname.length !== 0 && !vehicle.vehicledue">{{ vehicle.Price }}</p>
+          <!-- Show "Not Assigned" if assignedname is empty -->
+          <p *ngIf="!vehicle.assignedname || vehicle.assignedname.length === 0">Not Assigned</p>
+        </td>
+      </tr>
+    </tbody>
+    </table>
+  </div>

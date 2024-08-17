@@ -1,0 +1,36 @@
+<!-- navbar -->
+<app-driver-nav></app-driver-nav>
+
+<h1 class="heading m-3">Add Driver</h1>
+
+<form>
+  <!-- DriverName -->
+  <div class="input-group mb-3 shadow">
+    <input  [(ngModel)]="adddrivers.Name" name="Name" #Name="ngModel" type="text" class="form-control" placeholder="NAME" aria-label="Recipient's username" aria-describedby="basic-addon2">
+    <span class="input-group-text" id="basic-addon2"><i class="fa-solid fa-id-badge"></i></span>
+
+  </div>
+
+   <!-- MOBNumber -->
+   <div class="input-group mb-3 shadow">
+     <input  [(ngModel)]="adddrivers.Phone" name="Phone" #Phone="ngModel" type="number" class="form-control" placeholder="Phone Num" aria-label="Recipient's username" aria-describedby="basic-addon2">
+     <span class="input-group-text" id="basic-addon2"><i class="fa-solid fa-id-badge"></i></span>
+
+   </div>
+
+   <!-- Email -->
+   <div class="input-group mb-3 shadow">
+     <input  [(ngModel)]="adddrivers.Email" name="Email" #Email="ngModel" type="email" class="form-control" placeholder="Email" aria-label="Brand">
+   </div>
+   <!-- Age -->
+   <div class="input-group shadow">
+     <span class="input-group-text">Age</span>
+     <textarea [(ngModel)]="adddrivers.Age" name="Age" #Age="ngModel" class="form-control" aria-label="With textarea"></textarea>
+   </div>
+
+<div class="btn-section mt-5">
+     <button   class="btn btn-primary me-4" (click)="submit()" >submit</button>
+     <button routerLink="" class="btn btn-secondary" (click)="cancel()" >Cancel</button>
+</div>
+
+</form>

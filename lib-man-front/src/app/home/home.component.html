@@ -1,0 +1,63 @@
+<!-- header -->
+
+<app-navbar></app-navbar>
+<!-- ========================= -->
+<!-- website intro -->
+<div class="jumbotron m-5 rounded">
+    <h1 class="display-4 text-danger fw-bolder">Welcome to car hub</h1>
+    <p class="lead text-danger fw-bolder">Experience the thrill of intense car collections!</p>
+    <hr class="my-4">
+    <p class="text-danger fw-bolder">Join us and witness the excitement of world-class car events.</p>
+    <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+  </div>
+<!-- buttons -->
+ <div class="seperate text-center mb-4 shadow">
+
+    <button class="bg-secondary text-light fw-bold rounded me-4 w-25" (click)="viewAll()">All</button>
+    <button class="bg-success text-light fw-bold rounded me-4 w-25" (click)="assignedView()">Assigned View</button>
+    <button class="bg-danger text-light fw-bold rounded w-25" (click)="unassignedView()">UnAssigned View</button>
+
+ </div>
+<!-- cards
+  -->
+<div class="container-fluid mt-3 mb-3">
+
+    <div class="row mt-3">
+        <div class="col-lg-6 mt-2" *ngFor="let vehicle of seperateView | filter:searchKey:'Name'">
+            <div class="card h-100">
+                <!-- vehicle image-->
+                <img style="cursor: pointer;"  class="card-img-top" [src]="vehicle.Image" alt="..." />
+                <!-- vehicle details-->
+                <div class="card-body p-2">
+                    <div class="text-center fw-bold text-danger">
+                        <!-- vehicle brand -->
+                        <h4 class="fw-bolder  text-primary">{{vehicle.Brand}}</h4>
+                        <!-- vehicle name-->
+                        <h5 class="fw-bolder text-dark">{{vehicle.Name}}</h5>
+                        <!-- vehicle price-->
+                        ${{vehicle.Price}}
+                    </div>
+                    <!-- <div class="assign text-center">
+                        <h2 *ngIf="vehicle.assignedname.length!==0">Assigned</h2>
+                        <h2 *ngIf="vehicle.assignedname.length ==0">Not Assigned</h2>
+                    </div> -->
+                    <div class="assign text-center">
+                        <h2 *ngIf="vehicle.assignedname.length!==0">Assigned</h2>
+                        <h2 *ngIf="vehicle.assignedname.length ==0">Not Assigned</h2>
+                    </div>
+                </div>
+                <!-- Product actions-->
+                <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                    <div class="text-center view ">
+                        <!-- edit btn-->
+                        <button routerLink="edit/{{vehicle._id}}"  class="btn btn-outline-dark mt-auto bg-primary me-5"><i class="fa-solid fa-pen-to-square"></i></button>
+                        <!-- delete btn -->
+                        <button  class="btn btn-outline-dark mt-auto bg-danger ms-5"(click)="delete(vehicle._id)"><i class="fa-solid fa-trash"></i></button>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+</div>

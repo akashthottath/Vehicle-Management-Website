@@ -1,0 +1,81 @@
+<!-- header -->
+
+<app-navbar></app-navbar>
+
+<!-- ============================== -->
+
+<h1 class="heading m-4">Edit Product</h1>
+
+<form >
+  <!-- carName -->
+  <div class="input-group mb-3 shadow">
+   <input [(ngModel)]="editvehicles.Name" name="Name" #Name="ngModel" type="text" class="form-control" placeholder="Car Name" aria-label="Recipient's username" aria-describedby="basic-addon2">
+   <span class="input-group-text" id="basic-addon2"><i class="fa-solid fa-id-badge"></i></span>
+
+ </div>
+
+  <!--car image -->
+  <div class="mb-3 shadow">
+    <label for="basic-url" class="form-label">Product Image</label>
+    <div class="input-group">
+      <input  [(ngModel)]="editvehicles.Image" name="Image" #Image="ngModel" type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3 basic-addon4">
+    </div>
+  </div>
+     <!-- carBrand -->
+     <div class="input-group mb-3 shadow">
+       <input  [(ngModel)]="editvehicles.Brand" name="Brand" #Brand="ngModel" type="text" class="form-control" placeholder="carbrand" aria-label="Recipient's username" aria-describedby="basic-addon2">
+       <span class="input-group-text" id="basic-addon2"><i class="fa-solid fa-id-badge"></i></span>
+  
+     </div>
+  <!-- price -->
+  <div class="input-group mb-3 shadow">
+    <span class="input-group-text">$</span>
+    <input  [(ngModel)]="editvehicles.Price" name="Price" #Price="ngModel" type="number" class="form-control" aria-label="Amount (to the nearest dollar)">
+    <span class="input-group-text">.00</span>
+  </div>
+
+
+  <!-- assign&unassign -->
+  <div class="input-group mb-3 shadow ">
+    
+ 
+    <!-- <div>
+      <label for="checkbox1">True</label>
+      <input type="radio" id="checkbox1" name="isAssigned"  [(ngModel)]="editvehicles.isAssigned" [value]="true" >
+
+      <br>
+
+      <label for="checkbox2">False</label>
+      <input type="radio" id="checkbox2" name="isAssigned" [(ngModel)]="editvehicles.isAssigned"  [value]="false" >
+
+    </div> -->
+<!--      
+    <div class="input-group mb-3 shadow">
+  
+   <input [(ngModel)]="editvehicles.assignedname" name="assignedname" #assignedname="ngModel" type="text" class="form-control" placeholder="enable true and enter assign name" aria-label="Recipient's username" aria-describedby="basic-addon2">
+   <span class="input-group-text" id="basic-addon2"><i class="fa-solid fa-id-badge"></i></span>
+
+ </div> -->
+
+<!-- new binding -->
+<div>
+  <label for="assign" class="mt-2">Vehicle Is assigned To</label>
+  <select name="assignedname" id="assign" class="border p-2 mt-2 border-gray-300 rounded w-full" [(ngModel)]="editvehicles.assignedname">
+    <option *ngFor="let driver of editdriver" [value]="driver.Name">{{driver.Name}}</option>
+  </select>
+</div>
+</div>
+<div>
+  <label for="due">Vehicle Returned</label>
+  <select id="due" [(ngModel)]="editvehicles.vehicledue" name="vehicledue" class="border p-2 mt-2 border-gray-300 rounded w-full">
+    <option [value]="true">True</option>
+    <option [value]="false">False</option>
+  </select>
+</div>
+
+<div class="btn-section mt-5">
+    <button   class="btn btn-primary me-4" (click)="edit()" >submit</button>
+    <button routerLink="" class="btn btn-secondary" (click)="cancel()" >Cancel</button>
+</div>
+
+</form>

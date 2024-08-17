@@ -1,0 +1,26 @@
+
+<nav id="nav" class="rounded">
+    <div class="navTop">
+        <div class="navItem">
+            <h3>.cars</h3>
+        </div>
+        <div class="navItem">
+            <div class="search">
+                <input type="text" placeholder="Search..." [(ngModel)]="searchTerm" (keyup)="search($event)" class="form-control searchInput fst-italic">
+                <i class="fa-solid fa-magnifying-glass ms-1 text-dark"></i>
+            </div>
+        </div>
+        <div class="navItem">
+            <span class="limitedOffer" routerLink="">Pick One!</span>
+        </div>
+    </div>
+    <div class="navBottom">
+        <a class="menuItem text-danger fw-bold" routerLink="">HOME <i class="fa-solid fa-house-chimney text-danger"></i></a>
+        <a class="menuItem" routerLink="/add">Add Vehicles <i class="fa-solid fa-earth-oceania"></i></a>    
+        <a class="menuItem text-danger fw-bold" routerLink="/drivers/driverlist"><i>Drivers</i></a>
+        <a class="menuItem" routerLink="/driverrpt">Driver Report</a>
+
+    </div>
+</nav>
+
+

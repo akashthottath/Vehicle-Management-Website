@@ -1,0 +1,12 @@
+ /* table */
+ table, tr, th, td{
+    border: 1px solid black;
+  }
+        .content td{
+          color: brown;
+      }
+
+      td{
+        padding: 15px;
+        text-align: center;
+      }
